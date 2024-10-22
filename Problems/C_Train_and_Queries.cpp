@@ -2,11 +2,12 @@
 #define int long long
 #define nl "\n"
 #define blk " "
-#define rep(i,in,n) for(int i=in;i<n;i++)
+#define ffor(i,in,n) for(int i=in;i<n;i++)
+#define rfor(i,in,n) for(int i=n-1;i>=in;i--)
 #define pb push_back
 #ifndef ONLINE_JUDGE
-#define debug(a) std::cout<<#a<<blk<<a<<nl;
-#define sep(a) std::cout<<#a<<#a<<#a<<#a<<#a<<#a<<#a<<endl;
+#define debug(a) cout<<#a<<blk<<a<<nl;
+#define sep(a) cout<<#a<<#a<<#a<<#a<<#a<<#a<<#a<<endl;
 #else
 #define debug(a)
 #define sep(a)
@@ -21,7 +22,7 @@ int power(int x,int y)
         if(y&1)
         {
             res*=x;
-            //res%=N;
+            res%=N;
         }
         x*=x;
         y>>=1;
@@ -41,27 +42,52 @@ int32_t main()
 }
 void solve()
 {
-  int n,k;
-  cin>>n>>k;
-  map<int,pair<int,int>>mp;
-  for(int i=0;i<n;i++)
+  int n,q;
+  cin>>n>>q;
+  int a[n];
+  ffor(i,0,n)
   {
-    int x;
-    cin>>x;
-    if(!mp.count(x))
-    {
-        mp[x].first=i;
-        mp[x].second=i;
-    }
-    else mp[x].second=i;
+    int t;
+    cin>>t;
+    //if(i && a[i-1]==t)continue;
+    a[i]=t;
   }
-  rep(i,0,k)
+  while(q--)
   {
-    int a,b;
-    cin>>a>>b;
-    debug(mp[a].first)
-    debug(mp[b].second)
-    if(!mp.count(a) or !mp.count(b) or mp[a].first > mp[b].second)cout<<"NO"<<nl;
-    else cout<<"YES"<<nl;
+    int l,r;
+    cin>>l>>r;
+    if(find(a,a+n,l) == a+n || find(a,a+n,r) == a+n)
+    {
+        cout<<"NO"<<nl;
+        continue;
+    }
+    int trk=0,flag1=0,flag2=0;
+    ffor(i,0,n)
+    {
+        debug(a[i])
+        if(a[i]==l)
+        {
+            flag1=1;
+            trk=i;
+            break;
+        }
+    }
+    ffor(i,trk+1,n)
+    {
+        debug(a[i])
+        if(a[i]==r)
+        {
+            flag2=1;
+            break;
+        }
+    }
+    sep(-)
+    if(flag1 && flag2)
+    {
+        cout<<"YES"<<nl;
+        continue;
+    }
+    cout<<"NO"<<nl;
+    sep(*)
   }
 }

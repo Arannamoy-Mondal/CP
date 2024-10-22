@@ -14,46 +14,37 @@
 #endif
 const int N=1e5+5;
 using namespace std;
-int power(int x,int y)
+void solve()
 {
-    int res=1;
-    while(y)
+  string t="meow";
+  int n;
+  cin>>n;
+  string s,v="";
+  cin>>s;
+  ffor(i,0,n)
+  {
+    s[i]=tolower(s[i]);
+    if(v.empty())v+=s[i];
+    if(!v.empty() && v[v.size()-1]!=s[i])
     {
-        if(y&1)
-        {
-            res*=x;
-            res%N;
-        }
-        x*=x;
-        y>>=1;
+      v+=s[i];
     }
-    return res;
+  }
+  debug(v)
+  if(v==t)
+  {
+    
+    cout<<"YES"<<nl;
+  }
+  else cout<<"NO"<<nl;
 }
-void solve();
 int32_t main()
 {
  ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
- int ts=1;
+ int ts;
  cin>>ts;
  while(ts--)
  {
     solve();
  }
-}
-void solve()
-{
-  int n;
-  cin>>n;
-  string s;
-  cin>>s;
-  string s1="";
-  ffor(i,0,n)
-  {
-    s[i]=tolower(s[i]);
-    if(s1.empty())s1+=s[i];
-    if(s[i]!=s1[s1.size()-1])s1+=s[i];
-  }
-  debug(s1)
-  if(s1=="meow")cout<<"YES"<<nl;
-  else cout<<"NO"<<nl;
 }

@@ -2,7 +2,8 @@
 #define int long long
 #define nl "\n"
 #define blk " "
-#define rep(i,in,n) for(int i=in;i<n;i++)
+#define ffor(i,in,n) for(int i=in;i<n;i++)
+#define rfor(i,in,n) for(int i=n-1;i>=in;i--)
 #define pb push_back
 #ifndef ONLINE_JUDGE
 #define debug(a) cout<<#a<<blk<<a<<nl;
@@ -21,7 +22,7 @@ int power(int x,int y)
         if(y&1)
         {
             res*=x;
-            //res%=N;
+            res%=N;
         }
         x*=x;
         y>>=1;
@@ -41,24 +42,5 @@ int32_t main()
 }
 void solve()
 {
-  int n;
-  cin>>n;
-  int sum=0,cnt=0,f=0;
-  rep(i,0,n)
-  {
-    int x;
-    cin>>x;
-    sum+=abs(x);
-    if(x<0 && !f) 
-    {
-        cnt++;
-        f=1;
-    }
-    else if(x>0) f=0;
-    int t=i+1;
-    debug(t)
-    debug(cnt)
-    debug(f)
-  }
-  cout<<sum<<blk<<cnt<<nl;
+  
 }

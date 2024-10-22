@@ -22,7 +22,7 @@ int power(int x,int y)
         if(y&1)
         {
             res*=x;
-            //res%=N;
+            res%=N;
         }
         x*=x;
         y>>=1;
@@ -44,16 +44,12 @@ void solve()
 {
   int n;
   cin>>n;
-  map<int,int>mp;
-  for(int i=0,x;i<n;i++)
+  int a[n],cnt=0;
+  ffor(i,0,n)cin>>a[i];
+  sort(a,a+n);
+  ffor(i,0,n-1)
   {
-    cin>>x;
-    mp[__lg(x)]++;
-  }
-  int cnt=0;
-  for(auto [x,y]:mp)
-  {
-    cnt+=(y*(y-1))/2;
+    if(a[i]&a[i+1] >= a[i]|a[i+1])cnt++;
   }
   cout<<cnt<<nl;
 }

@@ -22,7 +22,7 @@ int power(int x,int y)
         if(y&1)
         {
             res*=x;
-            res%=N;
+            //res%=N;
         }
         x*=x;
         y>>=1;
@@ -42,18 +42,12 @@ int32_t main()
 }
 void solve()
 {
-  string s,t;
+  string s;
   cin>>s;
-  t=s;
-  reverse(s.begin(),s.end());
-  if(s==t)cout<<0<<nl;
-  else 
+  int cnt=0;
+  for(int i=0,j=s.size()-1;i<s.size(),j>=0;i++,j--)
   {
-    int cnt=0;
-    ffor(i,0,s.size())
-    {
-        if(s[i]!=t[i])cnt++;
-    }
-    cout<<cnt/2<<nl;
+    if(s[i]!=s[j])cnt++;
   }
+  cout<<cnt/2;
 }

@@ -29,17 +29,6 @@ int power(int x,int y)
     }
     return res;
 }
-void solve();
-int32_t main()
-{
- ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
- int ts=1;
- cin>>ts;
- while(ts--)
- {
-    solve();
- }
-}
 void solve()
 {
   int n;
@@ -57,15 +46,28 @@ void solve()
     bool flag=0;
     ffor(j,1,v[i].size())
     {
-        string s1=v[i].substr(0,j),s2=v[i].substr(j,v[i].size()-1);
+        string s1=v[i].substr(0,j),s2=v[i].substr(j,v[i].size()-j);
+        debug(s1)
+        debug(s2)
         if(mp[s1] && mp[s2])
         {
             flag=1;
             break;
         }
     }
+    sep(-)
     if(flag)s+='1';
     else s+='0';
   }
   cout<<s<<nl;
+}
+int32_t main()
+{
+ ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
+ int ts=1;
+ cin>>ts;
+ while(ts--)
+ {
+    solve();
+ }
 }

@@ -2,17 +2,24 @@
 #define int long long
 #define nl "\n"
 #define blk " "
-#define rep(i,in,n) for(int i=in;i<n;i++)
+#define ffor(i,in,n) for(int i=in;i<n;i++)
+#define rfor(i,in,n) for(int i=n-1;i>=in;i--)
 #define pb push_back
 #ifndef ONLINE_JUDGE
 #define debug(a) cout<<#a<<blk<<a<<nl;
-#define cdebug(a) cout<<#a<<#a<<#a<<#a<<#a<<#a<<#a<<endl;
+#define sep(a) cout<<#a<<#a<<#a<<#a<<#a<<#a<<#a<<endl;
 #else
 #define debug(a)
-#define cdebug(a)
+#define sep(a)
 #endif
-const int N=2e5+5;
+const int N=1e5+5;
 using namespace std;
+vector<int> v[N];
+int vis[N];
+void reset()
+{
+    for(int i=0;i<=N;i++)vis[i]=0;
+}
 int power(int x,int y)
 {
     int res=1;
@@ -21,29 +28,23 @@ int power(int x,int y)
         if(y&1)
         {
             res*=x;
-            //res%=N;
+            res%=N;
         }
         x*=x;
         y>>=1;
     }
     return res;
 }
-vector<int> v[N];
-int vis[N];
-int pr[N];
-void dfs(int src,int pl)
+void dfs(int src)
 {
-    if(v[src].size()==1 && src!=1)
-    {
-        pr[src]=1;
-        return;
-    }
+    vis[src]=1;
     for(auto it:v[src])
     {
-        if(it!=pl)
+        if(it!=vis[src])
         {
-            dfs(it,src);
-            pr[src]+=pr[it];
+            //vis[src]+=vis[it];
+            dfs(it);
+            vis[src]+=vis[it];
         }
     }
 }
@@ -55,6 +56,7 @@ int32_t main()
  cin>>ts;
  while(ts--)
  {
+    reset();
     solve();
  }
 }
@@ -62,25 +64,20 @@ void solve()
 {
   int n;
   cin>>n;
-  rep(i,0,n+5)v[i].clear(),pr[i]=0,vis[i]=0;
-  rep(i,0,n-1)
+  ffor(i,0,n)
   {
     int a,b;
     cin>>a>>b;
     v[a].pb(b);
     v[b].pb(a);
   }
-  dfs(1,0);
-  int k;
-  cin>>k;
-  rep(i,0,k)
+  dfs(1);
+  int k,q;
+  cin>>q;
+  while(q--)
   {
-    int a,b;
-    cin>>a>>b;
-    debug(pr[a])
-    debug(pr[b])
-    debug(-1)
-    cout<<pr[a]*pr[b]<<nl;
-    cdebug(-)
+    int l,r;
+    cin>>l>>r;
+    cout<<vis[l]*vis[r]<<nl;
   }
 }

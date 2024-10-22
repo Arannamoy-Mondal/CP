@@ -7,8 +7,8 @@
 #define rep(i,in,n) for(int i=in;i<n;i++)
 #define pb push_back
 #ifndef ONLINE_JUDGE
-#define debug(a) cout<<#a<<blk<<a<<nl;
-#define sep(a) cout<<#a<<#a<<#a<<#a<<#a<<#a<<#a<<endl;
+#define debug(a) cerr<<#a<<blk<<a<<nl;
+#define sep(a) cerr<<#a<<#a<<#a<<#a<<#a<<#a<<#a<<endl;
 #else
 #define debug(a)
 #define sep(a)
@@ -28,6 +28,7 @@ int power(int x,int y)
             //res%=N;
         }
         x*=x;
+        //x%=N,
         y>>=1;
     }
     return res;
@@ -53,16 +54,13 @@ void solve()
 {
  int n,a,b;
  cin>>n>>a>>b;
- int tmp=b-a;
- tmp=max(0LL,tmp);
- if(tmp>n)tmp=n;
- int ans=(2*b- tmp);
- ans+=1;
- ans*=tmp;
- ans/=2;
- n-=tmp;
- ans+=max(n*a,0LL);
- cout<<ans<<nl;
+ if(a>=b){
+    cout<<n*a<<nl;
+    return;
+ }
+ int dif=min(n,b-a);
+ int ans=(((b+1)*b)/2) -(((b-dif+1)*(b-dif))/2);
+ cout<<ans+n*a-dif*a<<nl;
 }
 /*
 17

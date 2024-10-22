@@ -14,60 +14,44 @@
 #endif
 const int N=1e5+5;
 using namespace std;
-int power(int x,int y)
+void solve()
 {
-    int res=1;
-    while(y)
+  int n,q;
+  cin>>n>>q;
+  int a[n+1];
+  cin>>a[1];
+  int p[n+1];
+  p[1]=a[1];
+  ffor(i,2,n+1)
+  {
+    cin>>a[i];
+    p[i]=p[i-1]+a[i];
+  }
+  while(q--)
+  {
+    int s,d,c,sum=p[n];
+    cin>>s>>d>>c;
+    debug(sum)
+    if(s==1)
     {
-        if(y&1)
-        {
-            res*=x;
-            res%N;
-        }
-        x*=x;
-        y>>=1;
+        sum=sum-p[d]+(d-s+1)*c;
     }
-    return res;
+    else sum=sum-p[d]-p[s-1]+(d-s+1)*c;
+    debug(p[d-1])
+    debug(p[s])
+    debug(sum)
+    if(sum%2)cout<<"YES"<<nl;
+    else cout<<"NO"<<nl;
+    debug(p[d]-p[s-1])
+  }
 }
-void solve();
 int32_t main()
 {
  ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
- int ts=1;
+ int ts;
  cin>>ts;
  while(ts--)
  {
     solve();
  }
-}
-void solve()
-{
-  int n,q;
-  cin>>n>>q;
-  vector<int>v(n+1),p(n+1);
-  cin>>v[1];
-  p[1]=v[1];
-  ffor(i,2,n+1)
-  {
-    cin>>v[i];
-    p[i]=p[i-1]+v[i];
-  }
-  while(q--)
-  {
-    int a,b,c;
-    cin>>a>>b>>c;
-    if(a==1)
-    {
-       int sum;
-       sum=p[n]-p[b]+(c*(b-a+1));
-       if(sum%2)cout<<"YES"<<nl;
-       else cout<<"NO"<<nl;
-    }
-    else
-    {
-        int sum=p[n]-p[b]-p[a-1]+(c*(b-a+1));
-        if(sum%2)cout<<"YES"<<nl;
-        else cout<<"NO"<<nl;
-    }
-  }
 }
