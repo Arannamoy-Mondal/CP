@@ -8,7 +8,7 @@
 #define rep(i,in,n) for(int i=in;i<n;i++)
 #define pb push_back
 #ifndef ONLINE_JUDGE
-#define debug(a) cout<<#a<<blk<<a<<nl;
+#define debug(a) cout<<#a<<blk<<a<<nl;;
 #define sep(a) cout<<#a<<#a<<#a<<#a<<#a<<#a<<#a<<endl;
 #else
 #define debug(a)

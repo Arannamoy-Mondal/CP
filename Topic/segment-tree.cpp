@@ -7,7 +7,7 @@ void build(int node,int b,int e){
         t[node]=a[b];
         return;
     }
-    int mid=(b+e)/2,l=node*2,r=l+1;
+    int mid=(b+e)/2,l=node*2,r=l+1;;
     build(l,b,mid);
     build(r,mid+1,e);
     t[node]=t[l]+t[r];

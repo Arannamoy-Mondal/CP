@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 #define int long long
 #define pb push_back
-const int N=1e7+5; 
+const int N=1e7+5; ;
 using namespace std;
 vector<int> v[N];
 int vis[N];

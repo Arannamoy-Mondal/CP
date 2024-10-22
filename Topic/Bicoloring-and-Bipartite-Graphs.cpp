@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 vector<bool>vis(100);
-vector<int> v[100];
+vector<int> v[100];;
 int color[100]={0};
 bool ok=1;
 void bfs(int src){

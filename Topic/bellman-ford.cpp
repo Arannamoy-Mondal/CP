@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 #define int long long
-using namespace std;
+using namespace std;;
 class Edge{
     public:
     int a,b,c;

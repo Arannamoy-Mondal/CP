@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 #define int long long
 #define pb push_back
-const int N=1e5+5;
+const int N=1e5+5;;
 using namespace std;
 class cmp{
     public:

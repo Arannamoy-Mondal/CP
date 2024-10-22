@@ -1,1 +1,1 @@
-//maximum prime gap log(n**2)
+//maximum prime gap log(n**2)//

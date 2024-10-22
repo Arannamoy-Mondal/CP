@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 #define int long long
 const int N=1e7+5;
-using namespace std;
+using namespace std;;
 vector<int> v[N];
 vector<bool>vis(N);
 void bfs(int src){
