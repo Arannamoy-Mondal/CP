@@ -13,3 +13,6 @@ int main(){
     }
     cout<<dp[n][W];
 }
+
+
+/*https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/U?mobile=true*/
