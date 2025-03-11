@@ -12,16 +12,26 @@ int main(){
         }
     }
     cout<<dp[n][W]<<"\n";
+    cout<<dp[n][W];
     vector<int>ans;
+    int t=W;
     for(int i=n;i>0;i--){
-        if(dp[i][W]!=dp[i-1][W]){
+        if(dp[i][t]!=dp[i-1][t]){
             ans.push_back(i-1);
-            W-=w[i-1];
+            t-=w[i-1];
         }
     }
     reverse(ans.begin(),ans.end());
     cout<<"Weight Value"<<"\n";
     for(auto &it:ans)cout<<w[it]<<"\t"<<v[it]<<"\n";
+    for(int i=0;i<=n;i++){
+        cout<<w[i]<<" ";
+        for(int j=0;j<=W;j++){
+            cout<<i<<j<<"="<<dp[i][j]<<" ";
+        }
+        cout<<"\n";
+    }
+    
 }
 
 
