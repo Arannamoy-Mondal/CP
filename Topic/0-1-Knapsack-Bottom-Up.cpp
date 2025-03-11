@@ -11,7 +11,17 @@ int main(){
             else dp[i][j]=dp[i-1][j];
         }
     }
-    cout<<dp[n][W];
+    cout<<dp[n][W]<<"\n";
+    vector<int>ans;
+    for(int i=n;i>0;i--){
+        if(dp[i][W]!=dp[i-1][W]){
+            ans.push_back(i-1);
+            W-=w[i-1];
+        }
+    }
+    reverse(ans.begin(),ans.end());
+    cout<<"Weight Value"<<"\n";
+    for(auto &it:ans)cout<<w[it]<<"\t"<<v[it]<<"\n";
 }
 
 
