@@ -16,6 +16,6 @@
     </a>
   </li>
  <li>
-   <a href="https://cses.fi/problemset/task/1675">MST CSES1</a>
+   <a href="https://cses.fi/problemset/task/1675">MST CSES 1</a>
  </li>
 </ol>
