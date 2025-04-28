@@ -10,5 +10,10 @@
       GFG DSU 1
     </a>
   </li>
+  <li>
+    <a href="https://www.geeksforgeeks.org/problems/detect-cycle-using-dsu/1?utm_source=geeksforgeeks&utm_medium=ml_article_practice_tab&utm_campaign=article_practice_tab">
+    GFG DSU 2  
+    </a>
+  </li>
 
 </ol>
