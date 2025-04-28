@@ -15,5 +15,7 @@
     GFG DSU 2  
     </a>
   </li>
-
+ <li>
+   <a href="https://cses.fi/problemset/task/1675">MST CSES1</a>
+ </li>
 </ol>
