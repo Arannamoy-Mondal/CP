@@ -1,3 +1,5 @@
+// Time Complexity n*n
+
 #include <bits/stdc++.h>
 #define nl "\n"
 #define blk " "
